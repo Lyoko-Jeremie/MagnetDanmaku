@@ -32,3 +32,5 @@ node_modules
 .idea
 
 
+*-compiled.js.map
+*-compiled.js
