@@ -14,6 +14,12 @@ console.log(dama);
 
 console.log(fac.checkDanma(dama));
 
+console.log(
+    fac.restoreDanmaFromPGPContent(
+        dama.pgpContent,
+        dama.hashTriples.user25591pubkey
+    )
+);
 
 
 
