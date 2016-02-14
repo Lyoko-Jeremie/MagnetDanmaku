@@ -1,13 +1,19 @@
 import fac from "../lib/danma-factory";
-import * as sod from "libsodium-wrappers";
+import * as sodium from "libsodium-wrappers";
 
-const seed = sod.randombytes_random("hex");
+const seed = sodium.randombytes_buf(sodium.crypto_sign_SEEDBYTES);
 
-console.log(seed);
+//console.log(sodium.crypto_sign_SEEDBYTES);
 
-console.log(fac.createDanmaFromStrngTypeDanmaContent(
+//console.log(seed);
+
+const dama = fac.createDanmaFromStrngTypeDanmaContent(
     "asdf", 123451346, 0xFFFFFFFF, seed
-));
+);
+console.log(dama);
+
+console.log(fac.checkDanma(dama));
+
 
 
 
