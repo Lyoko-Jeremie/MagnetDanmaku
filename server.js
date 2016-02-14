@@ -27,6 +27,14 @@ var defaultLogger = {
         console.log(msg);
     }
 };
+if (process.argv.indexOf("-v") != -1) {
+    defaultLogger.verbose = function (msg) {
+        console.log(msg);
+    }
+} else {
+    defaultLogger.verbose = function (msg) {
+    }
+}
 
 var defaultConfig = {
     db: 'magnetdb://localhost:2333',
@@ -39,8 +47,7 @@ var defaultConfig = {
         allowMethods: "GET,POST,PUT,DELETE,HEAD,OPTIONS",
         allowCredentials: false
     },
-    dbOptions: {
-    },
+    dbOptions: {},
     humanReadableOutput: true,
     collectionOutputType: "json",
     urlPrefix: "",
