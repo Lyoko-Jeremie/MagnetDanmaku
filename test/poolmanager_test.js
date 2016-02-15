@@ -1,8 +1,15 @@
 import poolmanager from "../lib/poolmanager-compiled";
+import * as sodium from "libsodium-wrappers";
 
+
+
+const videohash = sodium.to_base64(
+    sodium.crypto_generichash(64, "videohashvideohashvideohash")
+);
 
 var pm = new poolmanager.damapoolmanager();
-
+pm.getPool(videohash);
+pm.verifyPoolList();
 
 //var PoolList = {
 //    "b": 0,
